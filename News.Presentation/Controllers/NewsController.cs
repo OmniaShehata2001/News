@@ -23,11 +23,16 @@ namespace News.Presentation.Controllers
             var AllNews = await _NewsServices.GetAllAsync();
 
             var distinctDates = AllNews.Entities
-               .Select(news => new { news.NewsDate.Year, news.NewsDate.Month })
-               .Distinct()
-               .OrderByDescending(date => date.Year)
-               .ThenByDescending(date => date.Month)
-               .ToList();
+        .GroupBy(news => new { news.NewsDate.Year, news.NewsDate.Month })
+        .OrderByDescending(group => group.Key.Year)
+        .ThenByDescending(group => group.Key.Month)
+        .Select(group => new
+        {
+            Date = new DateTime(group.Key.Year, group.Key.Month, 1),
+            DateString = new DateTime(group.Key.Year, group.Key.Month, 1).ToString("MMMM, yyyy"),
+            Count = group.Count()
+        })
+        .ToList();
             ViewBag.DistinctDates = distinctDates;
 
             if (filterDate.HasValue)

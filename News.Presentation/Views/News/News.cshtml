@@ -66,7 +66,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" id="sendNewsBtn">Send News</button>
+                                <button type="button" class="btn modal-btn btn-primary" id="sendNewsBtn">Send News</button>
                             </div>
                         </div>
                     </div>
@@ -80,12 +80,12 @@
                 <div class="filter-links">
                     <h4>News Archive</h4>
                     <ul>
-                        <li><a asp-action="News" asp-controller="News">All News</a></li>
+                        <li><a class="link" asp-action="News" asp-controller="News">All News</a></li>
                         @foreach (var News in ViewBag.DistinctDates)
                         {
                             var monthName = new DateTime(News.Year, News.Month, 1).ToString("MMMM");
                             var date = new DateTime(News.Year, News.Month, 1);
-                            <li><a asp-action="News" asp-controller="News" asp-route-filterDate="@date">@monthName, @News.Year</a></li>
+                            <li><a class="link" asp-action="News" asp-controller="News" asp-route-filterDate="@date">@monthName, @News.Year</a></li>
                         }
                     </ul>
                 </div>

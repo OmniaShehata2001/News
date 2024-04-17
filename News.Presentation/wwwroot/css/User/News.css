@@ -70,12 +70,12 @@
     color: black;
 }
 
-    .header-right a:focus {
-        background-color: inherit;
-        border: none;
-        color: black;
-        box-shadow: none;
-    }
+.header-right a:focus {
+    background-color: inherit;
+    border: none;
+    color: black;
+    box-shadow: none;
+}
 
 .collapse.show {
     width: 100%;
@@ -102,10 +102,10 @@
     margin-top: 2rem;
 }
 
-    .right-side .site-description {
-        border: 1px solid black;
-        border-radius: 15px;
-    }
+.right-side .site-description {
+    border: 1px solid black;
+    border-radius: 15px;
+}
 
 .right-side .site-description h4 {
     padding: 1rem;
@@ -127,9 +127,10 @@
     border-bottom: 1px solid black;
 }
 
-.filter-links ul li a {
-    text-decoration: none;
-}
+    .filter-links ul li a {
+        text-decoration: none;
+        color: #267e26 !important;
+    }
 
 .collapse.show {
     display: flex;
@@ -148,4 +149,26 @@
 }
 .open-modal-btn:focus{
     box-shadow:none !important;
+}
+.modal-backdrop{
+    position:relative !important;
+}
+.modal {
+    background-color: #80808033 !important;
+}
+.modal-btn {
+    background-color: #2f5a2f !important;
+    border-color: #2f5a2f !important;
+}
+.btn-secondary {
+    background-color: #6c757d;
+}
+.modal-content{
+    border-radius:0.6rem !important;
+}
+input {
+    border-radius: 0.6rem !important;
+}
+textarea {
+    border-radius: 0.6rem !important;
 }

@@ -1,0 +1,46 @@
+﻿body {
+    background-image: url("../../NewsImages/pexels-cottonbro-studio-3944386.jpg");
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana,  sans-serif;
+}
+.container {
+    margin-top: 3rem;
+}
+.button {
+    text-align: end;
+}
+.btn {
+    background-color: black;
+    padding: 0.6rem 1.4rem;
+    border-radius: 8px;
+    border: 0;
+}
+.btn a{
+    text-decoration:none;
+    color:white;
+}
+.all {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    text-align:center;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 21px 39px;
+    list-style-type: none;
+    font-weight: 700;
+}
+.data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    padding: 1px 39px;
+}
+.data li img{
+    width:50%;
+}
+li{
+    width:10rem;
+}

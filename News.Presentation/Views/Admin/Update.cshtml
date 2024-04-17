@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+@model NewsDto
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link href="~/css/Admin/Edit.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container col-6">
+        <form method="post" enctype="multipart/form-data" class="form">
+                <h1>Edit News</h1>
+            <div class="mb-3">
+                <label for="NewsTitle" class="form-label">News Title</label>
+                <input asp-for="NewsTitle" type="text" class="form-control" id="NewsTitle" value="@Model.NewsTitle">
+            </div>
+            <div class="mb-3" hidden>
+                <label for="NewsTitle" class="form-label">News Title</label>
+                <input asp-for="Id" type="text" class="form-control" id="NewsTitle" value="@Model.Id">
+            </div>
+            <div class="mb-3">
+                <label for="NewsImage" class="form-label">News Image</label>
+                <input asp-for="NewsImage" name="NewsImage" type="file" class="form-control" id="NewsImage">
+                <input type="hidden" asp-for="NewsImageString" />
+            </div>
+            <div class="mb-3">
+                <label for="NewsDate" class="form-label">News Date</label>
+                <input asp-for="NewsDate" type="date" class="form-control" id="NewsDate" value="@Model.NewsDate.ToString("yyyy-MM-dd")">
+            </div>
+            <div class="mb-3">
+                <label for="NewsDetails" class="form-label">News Details</label>
+                <textarea asp-for="NewsDetails" class="form-control" id="NewsDetails" rows="3">@Model.NewsDetails</textarea>
+            </div>
+            <div class="button">
+                 <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        
+        </form>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

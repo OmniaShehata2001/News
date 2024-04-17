@@ -1,0 +1,151 @@
+﻿body {
+    background-image: url("../../NewsImages/pexels-cottonbro-studio-3944386.jpg");
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana,  sans-serif;
+}
+.cover {
+    position: absolute;
+    margin: -16px;
+    width: 101%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.container {
+    position: relative;
+    z-index: 10;
+    max-width: 98% !important;
+    /*    border: 1px solid black;
+*/ margin: 1rem;
+    padding-left: 0 !important;
+    height: 100%;
+}
+
+.title {
+/*    border-bottom: 1px solid black;
+*/    padding: 1rem;
+    width: 101% !important;
+}
+
+.alldata {
+}
+
+.row {
+    width: 50%;
+    border-radius: 15px;
+    border: 1px solid black;
+    display: flex;
+    padding: 0.6rem 1rem !important;
+    margin-top: 2rem !important;
+    margin-left: 2rem !important;
+}
+
+.row h4 {
+    padding-top: 0.5rem;
+}
+
+.header-right {
+    display: flex;
+    justify-content: end;
+    margin-top: 11px !important;
+}
+
+.header-right p {
+    color: black;
+}
+
+.header-right img {
+    margin-left: 1rem;
+}
+
+.header-right a {
+    margin-top: -4px;
+    font-size: 1.4rem;
+    background-color: inherit;
+    border: none;
+    color: black;
+}
+
+.header-right a:hover {
+    background-color: inherit;
+    border: none;
+    color: black;
+}
+
+    .header-right a:focus {
+        background-color: inherit;
+        border: none;
+        color: black;
+        box-shadow: none;
+    }
+
+.collapse.show {
+    width: 100%;
+    border-radius: 0 !important;
+    display: flex !important;
+    padding:1rem 1rem !important;
+    margin-left: 0rem !important;
+    flex-direction: row-reverse !important;
+    border-top: 1px solid black !important;
+}
+
+.collapse img {
+    width: 25%;
+    margin: 1rem 1rem;
+}
+
+.collapse p {
+    flex: 1;
+    margin-left: 1rem;
+}
+
+.right-side {
+    margin-left: 3rem;
+    margin-top: 2rem;
+}
+
+    .right-side .site-description {
+        border: 1px solid black;
+        border-radius: 15px;
+    }
+
+.right-side .site-description h4 {
+    padding: 1rem;
+    border-bottom: 1px solid black;
+}
+
+.right-side .site-description p {
+    padding: 1rem;
+}
+
+.filter-links {
+    border: 1px solid black;
+    margin-top: 2rem;
+    border-radius: 15px;
+}
+
+.filter-links h4 {
+    padding: 1rem;
+    border-bottom: 1px solid black;
+}
+
+.filter-links ul li a {
+    text-decoration: none;
+}
+
+.collapse.show {
+    display: flex;
+    flex-direction: column;
+}
+
+.collapse.show .card {
+    margin-top: 1rem;
+}
+
+.collapse.show .row {
+    margin-bottom: 1rem;
+}
+.open-modal-btn{
+    margin-top:-11px;
+}
+.open-modal-btn:focus{
+    box-shadow:none !important;
+}

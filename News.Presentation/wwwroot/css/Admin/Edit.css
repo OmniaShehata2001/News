@@ -1,0 +1,32 @@
+﻿body {
+    background-image: url("../../NewsImages/pexels-cottonbro-studio-3944386.jpg");
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana,  sans-serif;
+}
+.form {
+    background-color: white;
+    margin-top: 5rem;
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+}
+h1 {
+    text-align: center;
+}
+
+input {
+    border-radius: 8px !important;
+}
+
+textarea {
+    border-radius: 8px !important;
+}
+
+.button {
+    text-align: center;
+}
+
+.btn {
+    padding: 7px 25px;
+    border-radius: 8px;
+    background-color:black !important;
+    border:0;
+}

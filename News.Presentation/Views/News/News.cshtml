@@ -1,0 +1,145 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+@model List<NewsDto>
+<head>
+    <link rel="stylesheet" href="~/css/User/News.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="cover"></div>
+    <div class="container col-12">
+        <div class="title col-12">
+            <h1>innovix solution News</h1>
+        </div>
+        <div class="col-12 d-flex">
+        <div class="alldata col-8">
+            @foreach(var News in Model)
+            {
+ <div class="header row col-12">
+                <h4 class="col">@News.NewsTitle</h4>
+                    <div class="header-right col">
+                    <p>@News.NewsDate.ToString("MMMM dd, yyyy")</p>
+@*                         <img width="30" height="30" src="https://img.icons8.com/ios/50/000000/secured-letter--v1.png" alt="secured-letter--v1" />
+                        *@                            <button type="button" class="btn open-modal-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="" data-news-title="@News.NewsTitle"><img width="30" height="30" src="https://img.icons8.com/ios/50/000000/secured-letter--v1.png" alt="secured-letter--v1" /></button>
+                            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapse-@News.Id" role="button" aria-expanded="false" aria-controls="collapse-@News.Id">
+                                <i class="fa-solid fa-circle-chevron-down"></i>
+                            </a>
+                        </div>
+                        <div class="collapse col-12" id="collapse-@News.Id">
+                                <img src="~/NewsImages/@News.NewsImageString" />
+                                <p>@News.NewsDetails</p>
+                            </div>
+                    </div>
+                }
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="exampleModalForm" method="post" asp-action="News" asp-controller="News">
+                                    <input type="hidden" id="news-title" name="NewsTitle">
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Your Name</label>
+                                        <input type="text" class="form-control" id="recipient-name" name="YourName">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-email" class="col-form-label">Your Email</label>
+                                        <input type="email" class="form-control" id="recipient-email" name="YourEmail">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="friend-email" class="col-form-label">Friend Email</label>
+                                        <input type="email" class="form-control" id="friend-email" name="FriendEmail">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Message:</label>
+                                        <textarea class="form-control" id="message-text" name="Message"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="sendNewsBtn">Send News</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-side col-3">
+                <div class="site-description">
+                    <h4>Welcome to Our News</h4>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae nisi odio itaque error ipsum delectus a nihil numquam quo placeat debitis expedita deserunt laboriosam, doloremque, ratione dolore molestias corporis esse.</p>
+                </div>
+                <div class="filter-links">
+                    <h4>News Archive</h4>
+                    <ul>
+                        <li><a asp-action="News" asp-controller="News">All News</a></li>
+                        @foreach (var News in ViewBag.DistinctDates)
+                        {
+                            var monthName = new DateTime(News.Year, News.Month, 1).ToString("MMMM");
+                            var date = new DateTime(News.Year, News.Month, 1);
+                            <li><a asp-action="News" asp-controller="News" asp-route-filterDate="@date">@monthName, @News.Year</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<script>
+        document.querySelectorAll(".open-modal-btn").forEach(function (button) {
+            button.addEventListener("click", function () {
+                var NewsTitle = this.getAttribute("data-news-title");
+                document.getElementById("news-title").value = NewsTitle;
+                $('#exampleModal').modal('show');
+            });
+        });
+    document.getElementById("sendNewsBtn").addEventListener("click", function () {
+            var yourName = document.getElementById("recipient-name").value;
+            var yourEmail = document.getElementById("recipient-email").value;
+            var friendEmail = document.getElementById("friend-email").value;
+            var message = document.getElementById("message-text").value;
+            var NewsTitle = document.getElementById("news-title").value;
+
+        var data = {
+            YourName: yourName,
+            YourEmail: yourEmail,
+            FriendEmail: friendEmail,
+            Message: message,
+            NewsTitle: NewsTitle
+        };
+
+        fetch("/News/News", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Data sent successfully:", data);
+                    $('#exampleModal').modal('hide');
+            })
+            .catch(error => {
+                console.error("Error sending data:", error);
+            });
+    });
+</script>
+</body>
